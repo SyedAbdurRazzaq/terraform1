@@ -14,7 +14,7 @@ pipeline {
 
         stage('Terraform') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_credentials']]) {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'terraform']]) {
                     sh '''
                         terraform init
                         terraform plan -out=tfplan
